@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 };
