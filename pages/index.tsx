@@ -1,7 +1,19 @@
-export default function Home() {
+import Head from "next/head";
+import MainLayout from "../components/layout/MainLayout";
+
+const Home = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
-}
+    <div>
+      <Head>
+        <title>elog</title>
+        <meta name="description" content="test" />
+        <link rel="icon" href="/public/favicon.ico" />
+      </Head>
+      <MainLayout>
+        <section>test</section>
+      </MainLayout>
+    </div>
+  );
+};
+
+export default Home;
