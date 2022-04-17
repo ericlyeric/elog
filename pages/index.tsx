@@ -1,11 +1,14 @@
-import Head from "next/head";
-import MainLayout from "../components/layout/MainLayout";
+import ListLayout from "../components/layout/ListLayout";
 
 const Home = () => {
   return (
-    <MainLayout>
-      <section>test</section>
-    </MainLayout>
+    <>
+      <ListLayout
+        posts={[]}
+        title="All Posts"
+        pagination={{ currentPage: 1, totalPages: 2 }}
+      />
+    </>
   );
 };
 

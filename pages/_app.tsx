@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import siteMetadata from "../components/helper/siteMetadata";
+import MainLayout from "../components/layout/MainLayout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -10,7 +11,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <Component {...pageProps} />
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
     </ThemeProvider>
   );
 };

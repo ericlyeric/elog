@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Footer from "../layout/Footer";
+import Header from "../common/Header";
+import Footer from "../common/Footer";
 import { ReactNode } from "react";
 import SectionLayout from "./SectionLayout";
 
@@ -10,9 +10,11 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <SectionLayout>
-      <Header />
-      <main className="mb-auto">{children}</main>
-      <Footer />
+      <div className="flex h-screen flex-col justify-between">
+        <Header />
+        <main className="mb-auto">{children}</main>
+        <Footer />
+      </div>
     </SectionLayout>
   );
 };
