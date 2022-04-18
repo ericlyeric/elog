@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { default as Link } from "./Link";
 import siteMetadata from "../helper/siteMetadata";
 import headerNavLinks from "../helper/headerNavLinks";
@@ -8,6 +9,9 @@ import { BookOpenHeroIcon } from "../helper/Icons";
 const Header = () => {
   return (
     <div className="flex flex-col justify-between">
+      <Head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+      </Head>
       <header className="flex items-center justify-between py-10">
         <div className="flex items-center">
           <Link href="/">
