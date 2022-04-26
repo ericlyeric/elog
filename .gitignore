@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /out/
+.DS_Store
 
 # production
 /build
