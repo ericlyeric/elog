@@ -5,12 +5,8 @@ import headerNavLinks from "../helper/headerNavLinks";
 import ThemeSwitch from "./ThemeSwitch";
 import MobileNav from "./MobileNav";
 import { BookOpenHeroIcon } from "../helper/Icons";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { Session } from "next-auth";
 
 const Header = () => {
-  const { data: session } = useSession();
-
   return (
     <div className="flex flex-col justify-between">
       <Head>
@@ -18,7 +14,7 @@ const Header = () => {
       </Head>
       <header className="flex items-center justify-between py-10">
         <Logo />
-        <HeaderButtons session={session} />
+        <HeaderButtons />
       </header>
     </div>
   );
@@ -43,35 +39,28 @@ const Logo = () => {
   );
 };
 
-interface HeaderButtonsProps {
-  session: Session | null;
-}
-
-const HeaderButtons = ({ session }: HeaderButtonsProps) => {
+const HeaderButtons = () => {
   return (
     <div className="flex items-center text-base leading-5">
-      {session ? (
-        <>
-          <div className="hidden sm:block">
-            {headerNavLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
-          <button type="button" onClick={() => signOut()}>
-            logout
-          </button>
-        </>
-      ) : (
-        <button type="button" onClick={() => signIn()}>
-          login
+      <>
+        <div className="hidden sm:block">
+          {headerNavLinks.map((link) => (
+            <Link
+              key={link.title}
+              href={link.href}
+              className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+            >
+              {link.title}
+            </Link>
+          ))}
+        </div>
+        <button type="button" onClick={() => {}}>
+          logout
         </button>
-      )}
+      </>
+      {/* <button type="button" onClick={() => signIn()}>
+          login
+        </button> */}
       <ThemeSwitch />
       <MobileNav />
     </div>
