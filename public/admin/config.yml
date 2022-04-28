@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
-  repo: ericlyeric/elog
   branch: main # Branch to update (optional; defaults to master)
-  base_url: https://elog.netlify.app
 media_folder: public/assets
 public_folder: /assets
 publish_mode: editorial_workflow
