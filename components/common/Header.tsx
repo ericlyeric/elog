@@ -5,6 +5,7 @@ import headerNavLinks from "../helper/headerNavLinks";
 import ThemeSwitch from "./ThemeSwitch";
 import MobileNav from "./MobileNav";
 import { BookOpenHeroIcon } from "../helper/Icons";
+import { useMemo } from "react";
 
 const Header = () => {
   return (
@@ -40,6 +41,12 @@ const Logo = () => {
 };
 
 const HeaderButtons = () => {
+  const env = useMemo(() => {
+    if (process.env.NODE_ENV === "development") {
+      return "development";
+    }
+  }, []);
+
   return (
     <div className="flex items-center text-base leading-5">
       <>
@@ -47,20 +54,14 @@ const HeaderButtons = () => {
           {headerNavLinks.map((link) => (
             <Link
               key={link.title}
-              href={link.href}
+              href={env === "development" ? "/admin/index.html" : link.href}
               className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >
               {link.title}
             </Link>
           ))}
         </div>
-        <button type="button" onClick={() => {}}>
-          logout
-        </button>
       </>
-      {/* <button type="button" onClick={() => signIn()}>
-          login
-        </button> */}
       <ThemeSwitch />
       <MobileNav />
     </div>

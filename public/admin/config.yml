@@ -3,7 +3,7 @@ backend:
   branch: main # Branch to update (optional; defaults to master)
 media_folder: public/assets
 public_folder: /assets
-publish_mode: editorial_workflow
+create: true
 
 collections:
   - name: "pages"

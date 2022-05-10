@@ -1,3 +1,3 @@
-const headerNavLinks = [{ href: "/post", title: "post" }];
+const headerNavLinks = [{ href: "/admin", title: "post" }];
 
 export default headerNavLinks;
