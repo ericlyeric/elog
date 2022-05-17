@@ -1,1 +1,4 @@
-declare module "*.md";
+declare module '*.yml' {
+  const value: any;
+  export default value;
+}
