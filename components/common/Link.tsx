@@ -1,15 +1,12 @@
-import Link from "next/link";
-import { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
+import Link from 'next/link';
+import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
 const LinkWrapper = ({
   href,
   ...rest
-}: DetailedHTMLProps<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->) => {
-  const isInternalLink = href && href.startsWith("/");
-  const isAnchorLink = href && href.startsWith("#");
+}: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) => {
+  const isInternalLink = href && href.startsWith('/');
+  const isAnchorLink = href && href.startsWith('#');
 
   if (isInternalLink) {
     return (
