@@ -24,6 +24,6 @@ export const PostLayout = ({
   const authorName = getAuthor(author).name;
   
   return (
-
+    <h1>Post Layout Page</h1>
   )
 };

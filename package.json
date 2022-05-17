@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "npm build && next export"
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
