@@ -28,7 +28,7 @@ export const fetchPostContent = (): PostContent[] => {
   // get file names under /posts
   const filenames = fs.readdirSync(postsDirectory);
   const allPostsData = filenames
-    .filter((it) => it.endsWith('.mdx'))
+    .filter((file) => file.endsWith('.mdx'))
     .map((filename) => {
       // read markdown file as string
       const fullPath = path.join(postsDirectory, filename);
@@ -37,7 +37,7 @@ export const fetchPostContent = (): PostContent[] => {
       // use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents, {
         engines: {
-          yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+          yaml: (str) => yaml.load(str, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
       const matterData = matterResult.data as PostContent;
@@ -65,7 +65,7 @@ export const fetchPostContent = (): PostContent[] => {
 };
 
 export const countPosts = (tag?: string): number => {
-  return fetchPostContent().filter((it) => !tag || (it.tags && it.tags.includes(tag))).length;
+  return fetchPostContent().filter((post) => !tag || (post.tags && post.tags.includes(tag))).length;
 };
 
 interface listPostContentProps {
@@ -76,6 +76,6 @@ interface listPostContentProps {
 
 export const listPostContent = ({ page, limit, tag }: listPostContentProps): PostContent[] => {
   return fetchPostContent()
-    .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+    .filter((post) => !tag || (post.tags && post.tags.includes(tag)))
     .slice((page - 1) * limit, page * limit);
 };
