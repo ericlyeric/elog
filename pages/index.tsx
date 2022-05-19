@@ -2,7 +2,7 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import PostList from '../components/common/PostList';
-import siteMetadata from '../components/helper/siteMetadata';
+import settings from '../components/lib/settings';
 import { countPosts, listPostContent, PostsListProps } from '../components/lib/posts';
 
 const Home = ({ posts, pagination }: PostsListProps) => {
@@ -19,10 +19,10 @@ const Home = ({ posts, pagination }: PostsListProps) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = listPostContent({ page: 1, limit: siteMetadata.postsPerPage });
+  const posts = listPostContent({ page: 1, limit: settings.postsPerPage });
   const pagination = {
     current: 1,
-    pages: Math.ceil(countPosts() / siteMetadata.postsPerPage),
+    pages: Math.ceil(countPosts() / settings.postsPerPage),
   };
   return {
     props: {

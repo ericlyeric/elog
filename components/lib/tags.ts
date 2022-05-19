@@ -1,4 +1,4 @@
-import tags from '../../meta/tags.yml';
+import tags from '../../config/tags.yml';
 
 export interface TagContent {
   slug: string;

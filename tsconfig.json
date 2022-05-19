@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/helper/siteMetadata.ts"  ],
+, "components/helper/siteMetadata.ts"  ], // might cause errors, planning to remove this
   "exclude": [
     "node_modules"
   ]

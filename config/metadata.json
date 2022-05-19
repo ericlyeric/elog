@@ -1,0 +1,9 @@
+{
+  "title": "elog online journal",
+  "headerTitle": "elog",
+  "description": "An online journal created with Next.js and Tailwind.css",
+  "github": "https://github.com/ericlyeric",
+  "linkedin": "https://www.linkedin.com/in/ericlyly/",
+  "author": "Eric Ly",
+  "siteUrl": "https://elog.netlify.app/"
+}

@@ -1,4 +1,4 @@
-import authors from '../../meta/authors.yml';
+import authors from '../../config/authors.yml';
 
 interface AuthorContent {
   slug: string;

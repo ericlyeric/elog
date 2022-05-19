@@ -3,20 +3,123 @@ backend:
   branch: main # Branch to update (optional; defaults to master)
 media_folder: public/assets
 public_folder: /assets
-extension: mdx
-format: frontmatter
-widget: mdx
 
 collections:
   - name: 'posts'
     label: 'Posts'
+    label_singular: 'Post'
     folder: 'content/posts'
+    extension: mdx
+    format: frontmatter
     create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    identifier_field: slug
     fields:
-      - { label: 'Slug', name: 'slug', widget: 'string' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-      - { label: 'Summary', name: 'summary', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Author'
+        name: 'author'
+        widget: 'string'
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+      - label: 'Summary'
+        name: 'summary'
+        widget: 'string'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+  - name: 'settings'
+    label: 'Settings'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'config/settings.json'
+        description: 'General Site Settings'
+        fields:
+          - label: 'Theme'
+            name: theme
+            widget: 'select'
+            options: ['dark', 'light']
+          - label: 'Number of posts per page'
+            name: postsPerPage
+            widget: number
+            min: 1
+            max: 10
+      - name: 'authors'
+        label: Authors
+        delete: false
+        editor:
+        file: 'config/authors.yml'
+        description: 'Author descriptions'
+        fields:
+          - name: authors
+            label: 'Authors'
+            label_singular: 'Author'
+            widget: list
+            fields:
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the author'
+              - label: 'Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'First and last name'
+              - label: 'Introduction'
+                name: 'introduction'
+                widget: 'text'
+      - name: 'tags'
+        label: 'Tags'
+        file: 'config/tags.yml'
+        description: 'List of tags'
+        fields:
+          - name: tags
+            label: Tags
+            label_singular: 'Tag'
+            widget: list
+            fields:
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the tag'
+              - label: 'Display name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Tag name for displaying on the site'
+      - name: 'metadata'
+        label: 'Metadata'
+        file: 'config/metadata.json'
+        description: 'Site Metadata'
+        fields:
+          - label: 'Title'
+            name: 'title'
+            widget: 'string'
+          - label: 'Header Title'
+            name: 'headerTitle'
+            widget: 'string'
+          - label: 'Description'
+            name: 'description'
+            widget: 'string'
+          - label: 'Github'
+            name: 'github'
+            widget: 'string'
+          - label: 'LinkedIn'
+            name: 'linkedin'
+            widget: 'string'
+          - label: 'Author'
+            name: 'author'
+            widget: 'string'
+          - label: 'Site URL'
+            name: 'siteUrl'
+            widget: 'string'
