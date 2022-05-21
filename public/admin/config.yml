@@ -32,6 +32,11 @@ collections:
         widget: relation
         collection: settings
         file: 'authors'
+        searchFields:
+          - 'authors.*.name'
+        displayFields:
+          - 'authors.*.name'
+        valueField: 'authors.*.slug'
       - label: 'Tags'
         name: 'tags'
         widget: 'list'
