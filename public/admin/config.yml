@@ -12,7 +12,7 @@ collections:
     extension: mdx
     format: frontmatter
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     identifier_field: slug
     fields:
       - label: 'Slug'
