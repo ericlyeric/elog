@@ -1,6 +1,6 @@
 import authors from '../../config/authors.yml';
 
-interface AuthorContent {
+export interface AuthorContent {
   slug: string;
   name: string;
   introduction: string;

@@ -21,8 +21,6 @@ const Header = () => {
   );
 };
 
-export default Header;
-
 const Logo = () => {
   return (
     <div className="flex items-center">
@@ -65,3 +63,5 @@ const HeaderButtons = () => {
     </div>
   );
 };
+
+export default Header;

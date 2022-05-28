@@ -16,8 +16,6 @@ const Home = ({ posts, pagination }: PostsListProps) => {
   );
 };
 
-export default Home;
-
 export const getStaticProps: GetStaticProps = async () => {
   const posts = listPostContent({ page: 1, limit: settings.postsPerPage });
   const pagination = {
@@ -31,3 +29,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default Home;

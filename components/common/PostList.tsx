@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import { PostsListProps } from '../lib/posts';
-import { PostItem } from './PostItem';
+import PostItem from './PostItem';
 
 const PostList = ({ posts, pagination }: PostsListProps) => {
   const [searchValue, setSearchValue] = useState('');

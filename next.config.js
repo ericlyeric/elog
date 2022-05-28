@@ -9,8 +9,7 @@ module.exports = {
     });
 
     config.module.rules.push({
-      test: /\.yml$/,
-      type: "json",
+      test: /\.ya?ml$/,
       use: "yaml-loader",
     });
     return config;
