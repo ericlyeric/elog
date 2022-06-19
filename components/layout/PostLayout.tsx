@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Date from '../common/Date';
 import PageTitle from '../common/PageTitle';
-import ScrollToTop from '../helper/ScrollTop';
+import { ScrollUpIcon, ShareIcon } from '../helper/Icons';
+import ScrollingButton from '../helper/ScrollingButton';
 import { getAuthor } from '../lib/authors';
 import { getTag } from '../lib/tags';
 import SectionLayout from './SectionLayout';
@@ -26,11 +28,13 @@ const PostLayout = ({
 }: PostLayoutProps) => {
   // const keywords = tags.map((tag) => getTag(tag).name);
   // const authorName = getAuthor(author);
+  const [showScrollButtons, setScrollButtons] = useState(false);
+  const [showCopy, setShowCopy] = useState(false);
 
   return (
     <SectionLayout>
       {/* // can put meta stuff here and SEO */}
-      <ScrollToTop />
+      {/* create share button, it should show a modal */}
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
@@ -68,8 +72,46 @@ const PostLayout = ({
           </div>
         </div>
       </article>
+      <div
+        className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${
+          showScrollButtons ? 'md:flex' : 'md:hidden'
+        }`}
+      >
+        <div className="flex items-center">
+          {showCopy ? <div className="mr-3">Copied URL!</div> : null}
+          <div>
+            <ScrollingButton
+              label="Share button"
+              svg={<ShareIcon />}
+              setShow={setScrollButtons}
+              handleClick={() => {
+                setShowCopy(true);
+                setTimeout(() => setShowCopy(false), 2500);
+              }}
+            />
+          </div>
+        </div>
+        <div className="flex justify-end">
+          <ScrollingButton
+            label="Scroll to top"
+            svg={<ScrollUpIcon />}
+            setShow={setScrollButtons}
+            handleClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          />
+        </div>
+      </div>
     </SectionLayout>
   );
 };
 
+const AlertBanner = () => {
+  return (
+    <div
+      className="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+      role="alert"
+    >
+      <span className="font-medium">Copied URL!</span>
+    </div>
+  );
+};
 export default PostLayout;

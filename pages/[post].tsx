@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = matter(source, {
     engines: { yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object },
   });
-  const mdxSource = await serialize(source, { scope: data });
+  const mdxSource = await serialize(content, { scope: data });
   return {
     props: {
       title: data.title,
