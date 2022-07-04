@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Date from '../common/Date';
 import PageTitle from '../common/PageTitle';
-import { ScrollUpIcon, ShareIcon } from '../helper/Icons';
+import { ScrollUpIcon, CopyIcon } from '../helper/Icons';
 import ScrollingButton from '../helper/ScrollingButton';
+import CopyButton from '../helper/CopyButton';
 import { getAuthor } from '../lib/authors';
 import { getTag } from '../lib/tags';
 import SectionLayout from './SectionLayout';
@@ -73,24 +74,8 @@ const PostLayout = ({
         </div>
       </article>
       <div
-        className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${
-          showScrollButtons ? 'md:flex' : 'md:hidden'
-        }`}
+        className={`fixed right-8 bottom-20 hidden ${showScrollButtons ? 'md:flex' : 'md:hidden'}`}
       >
-        <div className="flex items-center">
-          {showCopy ? <div className="mr-3">Copied URL!</div> : null}
-          <div>
-            <ScrollingButton
-              label="Share button"
-              svg={<ShareIcon />}
-              setShow={setScrollButtons}
-              handleClick={() => {
-                setShowCopy(true);
-                setTimeout(() => setShowCopy(false), 2500);
-              }}
-            />
-          </div>
-        </div>
         <div className="flex justify-end">
           <ScrollingButton
             label="Scroll to top"
@@ -100,18 +85,13 @@ const PostLayout = ({
           />
         </div>
       </div>
+      <div className="fixed right-8 bottom-8">
+        <div className="flex items-center">
+          <CopyButton showText={showCopy} setShowText={setShowCopy} slug={slug} />
+        </div>
+      </div>
     </SectionLayout>
   );
 };
 
-const AlertBanner = () => {
-  return (
-    <div
-      className="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
-      role="alert"
-    >
-      <span className="font-medium">Copied URL!</span>
-    </div>
-  );
-};
 export default PostLayout;

@@ -2,6 +2,7 @@ import { Dispatch, MouseEventHandler, ReactNode, SetStateAction, useEffect } fro
 
 interface ScrollingButtonProps {
   label: string;
+  alwaysVisible?: boolean;
   setShow: Dispatch<SetStateAction<boolean>>;
   handleClick: MouseEventHandler;
   svg: ReactNode;
