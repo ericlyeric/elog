@@ -11,7 +11,7 @@ export const CopyButton = ({ showText, setShowText, slug }: CopyButtonProps) => 
   return (
     <>
       {showText ? (
-        <div className="mr-3 rounded px-2 py-1 bg-black dark:bg-white text-gray-900 dark:text-grey-100">
+        <div className="mr-3 rounded px-2 py-1 bg-black text-gray-100 dark:bg-white dark:text-gray-900">
           Copied URL!
         </div>
       ) : null}
