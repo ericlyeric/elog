@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import { PostsListProps } from '../lib/posts';
@@ -6,6 +6,16 @@ import PostItem from './PostItem';
 
 const PostList = ({ posts, pagination }: PostsListProps) => {
   const [searchValue, setSearchValue] = useState('');
+  const filterPosts = useMemo(
+    () =>
+      posts.filter((content) => {
+        const searchContent = content.title + content.summary + content.tags.join(' ');
+        return searchContent.toLowerCase().includes(searchValue.toLowerCase());
+      }),
+    [posts, searchValue]
+  );
+
+  const displayPosts = posts.length > 0 && !searchValue ? posts : filterPosts;
 
   return (
     <>
@@ -19,8 +29,8 @@ const PostList = ({ posts, pagination }: PostsListProps) => {
           </div>
         </div>
         <ul>
-          {/* {!filteredBlogPosts.length && 'No posts found.'} */}
-          {posts.map((post, index) => {
+          {!filterPosts.length && <div className="py-4 text-center text-lg">No posts found.</div>}
+          {displayPosts.map((post, index) => {
             return <PostItem key={index} post={post} index={index} />;
           })}
         </ul>

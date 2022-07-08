@@ -17,7 +17,7 @@ export interface PostContent {
   title: string;
   summary?: string;
   slug: string;
-  tags?: string[];
+  tags: string[];
   fullPath: string;
 }
 
