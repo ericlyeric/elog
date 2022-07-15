@@ -4,13 +4,13 @@ import { default as Link } from './Link';
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-  link: {
-    href: (page: number) => string;
-    as: (page: number) => string;
-  };
+  // link: {
+  //   href: (page: number) => string;
+  //   as: (page: number) => string;
+  // };
 }
 
-const Pagination = ({ totalPages, currentPage, link }: PaginationProps) => {
+const Pagination = ({ totalPages, currentPage }: PaginationProps) => {
   const pagination = generatePagination({ currentPage, totalPages });
 
   return (

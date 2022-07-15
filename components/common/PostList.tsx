@@ -3,9 +3,10 @@ import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import { PostsListProps } from '../lib/posts';
 import PostItem from './PostItem';
+import { useSearchContext } from '../context/SearchContext';
 
 const PostList = ({ posts, pagination }: PostsListProps) => {
-  const [searchValue, setSearchValue] = useState('');
+  const { searchValue } = useSearchContext();
   const filterPosts = useMemo(
     () =>
       posts.filter((content) => {
@@ -25,7 +26,7 @@ const PostList = ({ posts, pagination }: PostsListProps) => {
             All Posts
           </h1>
           <div className="relative min-h-full">
-            <SearchBar value={searchValue} setValue={setSearchValue} />
+            <SearchBar />
           </div>
         </div>
         <ul>
