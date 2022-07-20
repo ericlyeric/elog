@@ -41,14 +41,9 @@ const PostLayout = ({
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <header className="pt-3 xl:pb-3">
             <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <Date date={date} />
-                  </dd>
-                </div>
-              </dl>
+              <div className="text-base font-medium text-center leading-6 text-gray-500 dark:text-gray-400">
+                <Date date={date} />
+              </div>
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
@@ -56,8 +51,8 @@ const PostLayout = ({
                 {tags && (
                   <div className="flex justify-center py-3 xl:py-1">
                     <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <TagItem key={tag} text={tag} />
+                      {tags.map((tag, index) => (
+                        <TagItem key={tag} text={tag} isEnd={index === tags.length - 1} />
                       ))}
                     </div>
                   </div>
