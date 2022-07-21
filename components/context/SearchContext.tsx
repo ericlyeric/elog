@@ -1,11 +1,11 @@
-import { createContext, Dispatch, SetStateAction, useContext, useState } from 'react';
+import * as React from 'react';
 
 interface SearchContextProps {
   searchValue: string;
-  setSearchValue: Dispatch<SetStateAction<string>>;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchContext = createContext<SearchContextProps>({
+const SearchContext = React.createContext<SearchContextProps>({
   searchValue: '',
   setSearchValue: () => {},
 });
@@ -15,7 +15,7 @@ interface SearchProviderProps {
 }
 
 export const SearchProvider = ({ children }: SearchProviderProps) => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = React.useState('');
 
   return (
     <SearchContext.Provider value={{ searchValue, setSearchValue }}>
@@ -25,7 +25,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
 };
 
 export const useSearchContext = () => {
-  const context = useContext(SearchContext);
+  const context = React.useContext(SearchContext);
   if (context === undefined) {
     throw new Error('useSearchContext must be used within a SearchProvider');
   }

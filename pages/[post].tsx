@@ -13,7 +13,6 @@ interface PostProps {
   dateString: string;
   slug: string;
   tags: string[];
-  author: string;
   description?: string;
   source: MDXRemoteProps;
 }
@@ -30,14 +29,13 @@ const slugToPostContent = ((postContents) => {
   return hash;
 })(fetchPostContent());
 
-const Post = ({ title, dateString, slug, tags, author, description = '', source }: PostProps) => {
+const Post = ({ title, dateString, slug, tags, description = '', source }: PostProps) => {
   return (
     <PostLayout
       title={title}
       date={parseISO(dateString)}
       slug={slug}
       tags={tags}
-      author={author}
       description={description}
     >
       <MDXRemote {...source} />
@@ -67,7 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: data.slug,
       description: '',
       tags: data.tags,
-      author: data.author,
       source: mdxSource,
     },
   };

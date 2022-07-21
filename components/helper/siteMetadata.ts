@@ -1,3 +1,4 @@
+// can probably remove most of this
 const siteMetadata = {
   title: 'elog online journal',
   author: 'Eric Ly',

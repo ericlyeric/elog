@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import { PostsListProps } from '../lib/posts';
