@@ -1,5 +1,4 @@
-import { generatePagination } from '../lib/pagination';
-import { default as Link } from './Link';
+import LinkWrapper from './Link';
 
 interface PaginationProps {
   currentPage: number;
@@ -19,9 +18,9 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
           </button>
         )}
         {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/` : `/page/${currentPage - 1}`}>
+          <LinkWrapper href={currentPage - 1 === 1 ? `/` : `/page/${currentPage - 1}`}>
             <button>Previous</button>
-          </Link>
+          </LinkWrapper>
         )}
         <span>
           {currentPage} of {totalPages}
@@ -32,9 +31,9 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
           </button>
         )}
         {nextPage && (
-          <Link href={`/page/${currentPage + 1}`}>
+          <LinkWrapper href={`/page/${currentPage + 1}`}>
             <button>Next</button>
-          </Link>
+          </LinkWrapper>
         )}
       </nav>
     </div>

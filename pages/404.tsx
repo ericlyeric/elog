@@ -1,4 +1,4 @@
-import { default as Link } from "../components/common/Link";
+import LinkWrapper from '../components/common/Link';
 
 const FourZeroFour = () => {
   return (
@@ -12,14 +12,12 @@ const FourZeroFour = () => {
         <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
           Sorry we couldn&apos;t find this page.
         </p>
-        <p className="mb-8">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <Link href="/">
+        <p className="mb-8">But dont worry, you can find plenty of other things on our homepage.</p>
+        <LinkWrapper href="/">
           <button className="focus:shadow-outline-blue inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-blue-700 focus:outline-none dark:hover:bg-blue-500">
             Back to homepage
           </button>
-        </Link>
+        </LinkWrapper>
       </div>
     </div>
   );

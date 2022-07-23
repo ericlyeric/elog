@@ -1,26 +1,12 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
 import PostList from '../../components/common/PostList';
 import { countPosts, listPostContent, PostsListProps } from '../../components/lib/posts';
 import settings from '../../components/lib/settings';
 
-interface PageProps extends PostsListProps {
-  page: number;
-}
-
 // look into adding tags
-const Page = ({ posts, pagination, page }: PageProps) => {
-  const url = `page/${page}`;
-
-  return (
-    <>
-      <Head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-      </Head>
-      <PostList posts={posts} pagination={pagination} />
-    </>
-  );
+const Page = ({ posts, pagination }: PostsListProps) => {
+  return <PostList posts={posts} pagination={pagination} />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

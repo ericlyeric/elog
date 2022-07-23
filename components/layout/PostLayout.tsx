@@ -26,7 +26,6 @@ const PostLayout = ({ title, date, slug, tags, description, children }: PostLayo
   return (
     <SectionLayout>
       {/* // can put meta stuff here and SEO */}
-      {/* create share button, it should show a modal */}
       <article>
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <header className="pt-3 xl:pb-3">

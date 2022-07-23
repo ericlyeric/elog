@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { default as Link } from './Link';
+import LinkWrapper from './Link';
 import metadata from '../lib/metadata';
 import headerNavLinks from '../helper/headerNavLinks';
 import ThemeSwitch from './ThemeSwitch';
@@ -24,14 +24,14 @@ const Header = () => {
 const Logo = () => {
   return (
     <div className="flex items-center">
-      <Link href="/">
+      <LinkWrapper href="/">
         <div className="flex items-center justify-between">
           <div className="mr-2">
             <BookOpenHeroIcon />
           </div>
           <div className="text-2xl font-semibold sm:block">{metadata.headerTitle}</div>
         </div>
-      </Link>
+      </LinkWrapper>
     </div>
   );
 };
@@ -48,13 +48,13 @@ const HeaderButtons = () => {
       <>
         <div className="hidden sm:block">
           {headerNavLinks.map((link) => (
-            <Link
+            <LinkWrapper
               key={link.title}
               href={env === 'development' ? '/admin/index.html' : link.href}
               className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >
               {link.title}
-            </Link>
+            </LinkWrapper>
           ))}
         </div>
       </>
