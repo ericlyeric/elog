@@ -22,8 +22,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "components/helper/siteMetadata.ts"  ], // might cause errors, planning to remove this
+    "**/*.tsx"],
   "exclude": [
     "node_modules"
   ]

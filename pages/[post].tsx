@@ -10,6 +10,7 @@ import { fetchPostContent, PostContent } from '../components/lib/posts';
 
 interface PostProps {
   title: string;
+  summary: string;
   dateString: string;
   slug: string;
   tags: string[];
@@ -28,9 +29,9 @@ const slugToPostContent = ((postContents) => {
   return hash;
 })(fetchPostContent());
 
-const Post = ({ title, dateString, slug, tags, source }: PostProps) => {
+const Post = ({ title, summary, dateString, slug, tags, source }: PostProps) => {
   return (
-    <PostLayout title={title} date={parseISO(dateString)} slug={slug} tags={tags}>
+    <PostLayout title={title} summary={summary} date={parseISO(dateString)} slug={slug} tags={tags}>
       <MDXRemote {...source} />
     </PostLayout>
   );
@@ -55,6 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       title: data.title,
       dateString: data.date,
+      summary: data.summary,
       slug: data.slug,
       tags: data.tags,
       source: mdxSource,

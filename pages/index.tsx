@@ -2,9 +2,16 @@ import { GetStaticProps } from 'next';
 import PostList from '../components/common/PostList';
 import settings from '../components/lib/settings';
 import { countPosts, listPostContent, PostsListProps } from '../components/lib/posts';
+import SEO from '../components/helper/SEO';
+import metadata from '../components/lib/metadata';
 
 const Home = ({ posts, pagination }: PostsListProps) => {
-  return <PostList posts={posts} pagination={pagination} />;
+  return (
+    <>
+      <SEO title={metadata.title} description={metadata.description} />
+      <PostList posts={posts} pagination={pagination} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {

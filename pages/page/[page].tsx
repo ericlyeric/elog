@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import { GetStaticPaths, GetStaticProps } from 'next';
 import PostList from '../../components/common/PostList';
 import { countPosts, listPostContent, PostsListProps } from '../../components/lib/posts';

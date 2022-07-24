@@ -7,22 +7,24 @@ import CopyButton from '../helper/CopyButton';
 import SectionLayout from './SectionLayout';
 import TagItem from '../common/TagItem';
 import LinkWrapper from '../common/Link';
+import SEO from '../helper/SEO';
 
 interface PostLayoutProps {
   title: string;
+  summary: string;
   date: Date;
   slug: string;
   tags: string[];
   children: React.ReactNode;
 }
 
-const PostLayout = ({ title, date, slug, tags, children }: PostLayoutProps) => {
+const PostLayout = ({ title, summary, date, slug, tags, children }: PostLayoutProps) => {
   const [showScrollButtons, setScrollButtons] = useState(false);
   const [showCopy, setShowCopy] = useState(false);
 
   return (
     <SectionLayout>
-      {/* // can put meta stuff here and SEO */}
+      <SEO title={title} description={summary} />
       <article>
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <header className="pt-3 xl:pb-3">
