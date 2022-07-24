@@ -28,8 +28,16 @@ collections:
         dateFormat: 'YYYY-MM-DD'
         timeFormat: 'HH:mm'
       - label: 'Tags'
+        label_singular: 'Tag'
         name: 'tags'
-        widget: 'list'
+        widget: 'tagSelect'
+        multiple: true,
+        collection: 'settings'
+        display_fields:
+          - 'tags.*.name'
+        search_fields:
+          - 'tags.*.name'
+        value_field: 'tags.*.name'
       - label: 'Summary'
         name: 'summary'
         widget: 'string'
@@ -66,10 +74,6 @@ collections:
             label_singular: 'Tag'
             widget: list
             fields:
-              - label: 'Slug'
-                name: 'slug'
-                widget: 'string'
-                hint: 'The part of a URL identifies the tag'
               - label: 'Display name'
                 name: 'name'
                 widget: 'string'

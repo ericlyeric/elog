@@ -3,7 +3,6 @@ import PostList from '../components/common/PostList';
 import settings from '../components/lib/settings';
 import { countPosts, listPostContent, PostsListProps } from '../components/lib/posts';
 
-// look into adding tags
 const Home = ({ posts, pagination }: PostsListProps) => {
   return <PostList posts={posts} pagination={pagination} />;
 };

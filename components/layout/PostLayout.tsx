@@ -4,7 +4,6 @@ import PageTitle from '../common/PageTitle';
 import { ScrollUpIcon } from '../helper/Icons';
 import ScrollingButton from '../helper/ScrollingButton';
 import CopyButton from '../helper/CopyButton';
-import { getTag } from '../lib/tags';
 import SectionLayout from './SectionLayout';
 import TagItem from '../common/TagItem';
 import LinkWrapper from '../common/Link';
@@ -14,12 +13,10 @@ interface PostLayoutProps {
   date: Date;
   slug: string;
   tags: string[];
-  description?: string;
   children: React.ReactNode;
 }
 
-const PostLayout = ({ title, date, slug, tags, description, children }: PostLayoutProps) => {
-  // const keywords = tags.map((tag) => getTag(tag).name);
+const PostLayout = ({ title, date, slug, tags, children }: PostLayoutProps) => {
   const [showScrollButtons, setScrollButtons] = useState(false);
   const [showCopy, setShowCopy] = useState(false);
 
