@@ -1,0 +1,36 @@
+---
+slug: what-is-a-proxy
+title: What is a proxy?
+date: 2022-08-03 10:25:19
+tags:
+  - programming
+  - software engineering
+summary: A device that is acting on behalf of another device
+---
+Proxy - the authority to represent someone else (common in voting process). In computer networking its when a device is acting on behalf of another device.
+
+The direction of exchange is key, who is sending the data and who is receiving the data? After that is established; a proxy and a reverse proxy is the same concept but in different directions.
+
+## (Forward) Proxy
+
+Proxy requests going out (typically clients). The receiver doesn't know where the where the client is making the request from; the receiver knows what the request is but not where it is coming from. Common use case is the ISP acting as a proxy when you're visiting a website on the web. Another common use case is at the workplace where they use a corporate proxy to block certain websites. 
+
+### Pros
+
+1. Selectively send/block requests
+2. Log or monitor requests
+3. Caching responses
+
+## Reverse Proxy
+
+Proxies requests coming in (typically servers). The client talks to one proxy, and the proxy decides which server it needs to talk to complete the request. 
+
+### Pros
+
+1. Security (eg. DDoS attack prevention, firewall, block bots)
+2. Caching
+3. Load balancing (most common use case)
+
+## Source
+1. [Forward proxy vs reverse proxy difference explained](https://www.youtube.com/watch?v=AuINJdBPf8I)
+2. [What is a proxy?](https://www.youtube.com/watch?v=jGQTS1CxZTE)
