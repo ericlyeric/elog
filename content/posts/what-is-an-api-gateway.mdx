@@ -1,0 +1,27 @@
+---
+slug: what-is-an-api-gateway
+title: What is an API Gateway
+date: 2022-08-03 10:53:44
+tags:
+  - programming
+  - software engineering
+summary: An abstraction between a client and a collection of backend services
+  and returns the appropriate result
+---
+API Gateway (Edge Microservice) - an API management tool that sits between a client and a collection of backend services. It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them , and return the appropriate result.
+
+## How do you start using an API Gateway?
+1. Identify your external API
+2. Bring in the gateway microservice (calling on existing microservices and passing on the response) aka API composition
+
+## Optional steps to API Gateway
+1. Add monitoring
+2. Handle authentication 
+
+## Cons
+- response times will be slower
+- how many API Gateways do you need (if you only have one what if it goes down?)
+- BFF pattern (backend for frontend) might need different API Gateways depending on the device that is calling it
+
+## Source
+1. [What is API gateway really about?](https://www.youtube.com/watch?v=1vjOv_f9L8I)
