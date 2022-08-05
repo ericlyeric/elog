@@ -1,0 +1,40 @@
+---
+slug: what-is-kubernetes
+title: What is Kubernetes
+date: 2022-08-05 09:25:23
+tags:
+  - software engineering
+  - programming
+summary: Kubernetes is an orchestration tool for running and managing container
+  based workloads
+---
+Kubernetes is an orchestration tool for running managing container based workloads, developed by Google. It helps to manage containerized applications in different environments.
+
+The trend from monolith to microservices resulted in an increased usage of containers, the demand for a proper way of managing hundreds of containers was why container orchestration tools (Kubernetes) was created.
+
+Orchestration tools offer 
+- high availability (no downtime)
+- scalability
+- disaster recovery (backup and restore)
+
+Monoliths are a common way to build applications into a single deployable artifact. Deployments can take a long time as everything needs to roll out together, if different parts of the monolith are managed by different teams it adds additional complexity to the deployment. 
+
+Microservices are structuring the application as a collection of services that are 
+- loosely coupled
+- highly maintainable and testable
+- independently deployable 
+- organized around business capabilities
+- owned by a small team
+
+This allows for rapid, frequent delivery at large for complex applications.
+
+Containerizing microservices will package up all dependancies and configuration and ensure the services will run the same way no matter where they're ran.
+
+Kubernetes doesn't suite monoliths that well, the first step into using Kubernetes is to start using containers. 
+
+Kubernetes manages containers on virtual machines (nodes). The nodes and the containers they run are grouped together as a cluster and each container has endpoints, DNS, storage, and scalability. 
+
+## Sources
+1. [What is Kubernetes?](https://www.youtube.com/watch?v=cC46cg5FFAM)
+2. [Microservices](https://microservices.io/)
+ 
