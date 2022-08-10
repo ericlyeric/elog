@@ -1,0 +1,33 @@
+---
+slug: what-is-docker
+title: What is Docker
+date: 2022-08-10 11:50:44
+tags:
+  - programming
+  - software engineering
+summary: Docker solves the issue of "It works on my machine"
+---
+Docker solves the issue of 'It works on my machine', but moving the application onto another computer (eg. development, test, qa, production) suddenly the application is not working as expected. Docker creates a portable container where it can work exactly as expected on any machine. 
+
+A container is a software package that consists of all the dependancies required to run an application.
+
+Docker is a way to package software so that it can run on any hardware. This is achieved with three main parts 
+1. dockerfile - a blueprint for building a docker image
+2. image - a template for running docker containers
+3. container - a running process
+
+A developer can define the environments with a dockerfile, then any other developer can rebuild the environment using the docker file which is saved as an immutable snapshot (image). The image then goes into a container which runs the process. 
+
+Suggested to have 1 process per container. Docker compose is used to run multiple docker containers at the same time. 
+
+## VM vs. Docker
+- VM occupies more memory space
+- VM long boot-up time
+- Running multiple VM's lead to unstable performance
+- VM's are difficult to scale up
+- Docker is easily portable across different platforms
+- Data volumes can be shared and reused in Docker among multiple containers
+
+## Source
+1. [Learn Docker in 7 Easy Steps](https://www.youtube.com/watch?v=gAkwW2tuIqE)
+2. [What is Docker?](https://www.youtube.com/watch?v=-LeV_c1zG-s)
