@@ -1,0 +1,75 @@
+---
+slug: what-is-codespaces
+title: What is codespaces?
+date: 2022-08-13 13:17:10
+tags:
+  - software engineering
+summary: Github codespaces allow you to get up and coding/contributing quickly
+---
+Github.dev is not Github codespaces, they're similar but they're not the same. 
+
+Github.dev can be accessed by navigating to a repository and hitting the `.` key on the keyboard or replacing `.com` with `.dev` in the url. Commonly used to review pull requests.
+
+What you can do in Github.dev:
+- browse files
+- edit files
+- commit changes
+- create pull requests
+
+What you can't do in Github.dev:
+- run it
+- test it
+- debug it
+
+Github codespaces (container) spins up a new environment with all the dependancies (assuming the dev files are up to date). It runs on the cloud. You can run the code in codespaces, and can share that codespace with anyone (make it public, and send the url). 
+
+Is available to Team and Enterprise Cloud plans on github.com. You'll have access to Github codespaces under the following conditions:
+- You are a member of an organization that has enabled codespaces and set a spending limit
+- an organization owner has granted you access to Codespaces
+- the repository is owned by the organization that has enabled Codespaces
+- individuals who have already joined the Codespaces beta
+
+## Creating a codespace
+You can create a new codespace or open an existing codespace. You can have up to 10 codespaces at a time.
+- from your repository for new feature work
+- from an open PR to explore WIP
+- from a commit in a repo's history to investigate
+- from VS Code
+
+## Codespace lifecyle
+The lifecycle begins when you create a codespace and ends when you delete it. You can disconnect and reconnect to an active codespace without repercussions; you may stop and restart a codespace without losing changes you made to your project. Only running codespaces incur CPU charges, a stopped codespace incurs only storage costs. 
+
+If a codespace is inactive for 30 minutes (default) it will timeout. When a codespace times out, your data is preserved from the last time your changes were saved.
+
+You are able to rebuild a codespace to restore a clea state as if you had created a new codespace. This is likely to happen to implement changes to your dev container.
+
+## Developing
+Codespaces is a full development experience with VS Code. You are about to edit code, debug, and use Git commands while developing in a codespace with VS Code. 
+
+A codespace can be personalized by using dotfiles and Settings Sync.
+
+Ports can be forwarded to your codespace to test and debug your application. The port can be shared within your organization or publicly. Organization owners can restrict the ability to make forward ports available publicly. 
+
+After making changes to a file in your codespace you can commit the changes and push your update to the remote repository. The typical workflow would be to:
+- from default branch create a codespace
+- in your codespace create a new branch to work on
+- make your changes and save them
+- commit the change
+- raise a PR
+
+You can use GitHub codespaces to create PR's, review PR's and address review comments.
+
+You can develop in your codespace directly in VS Code by connecting the GitHub codespace extension with your account on GitHub.
+
+## Connecting to a Private Network
+You can connect GitHub codespaces to resources on a private network, including package registries, licence servers, and on-premises databases. By default codespaces have access to all resources on the public internet. 
+
+The current supported method of accessing resource on a private network is to use a VPN. It is currently not recommended to allow codespaces IPs.
+
+The easiest way to access resources behind a private network is to VPN into that network from within your codespace. A third party solution would be to use Tailscale.
+
+Codespaces IPs are dynamically assigned, you're not guaranteed to have the same IP address day to day. Users are discouraged from allowlisting an entire IP range.
+
+## Sources
+1. [What is GitHub Codespaces](https://www.youtube.com/watch?v=vDXPkAdqSyI)
+2. [GitHub Codespaces](https://docs.github.com/en/codespaces)
