@@ -1,0 +1,39 @@
+---
+slug: building-microservices-chapter-two
+title: "Building Microservices: Chapter 2: The Evolutionary Architect"
+date: 2022-08-13 13:23:51
+tags:
+  - software engineering
+  - microservices
+summary: Building Microservices Chapter 2 notes
+---
+Architects (software) are incharge of helping developers deliever the system the customer needs. The job scope may vary depending on the company, but more than any other role, architects can have direct impact on the quality of the systems built (on the working conditions of their colleagues, and the organizations ability to respond to change). A software architect is closer to a city planner than an engineer or an architect.
+
+The things we create are not fixed points in time, our software will continue to evolve as the way it is used changes. We can't focus on the perfect end proudct, but instead focus on helping create a framework in which the right systems can emerge, and continue to grow as we learn more.
+
+We need to worry less about what happens inside zoes than what happens between zones (think about how services talk to each other). Communication between services is where things can get messy.  
+
+## A Principled Approach
+- **Strategic goals** - should speak to where the company is going, and how it sees itself as best making its customers happy. Typically high-level goals, and may not include technology at all.
+- **Principles** - rules created to align what you are doing to some larger goal.
+- **Practices** - ensure how principles are being carried out, they are a set of detailed, practical guidance for performing tasks.
+- **Combining principles and practices** - one person's principals are another's practice; you may want a different set of practices in different places.
+
+## The Required Standard
+- **Monitoring** - essential for us to have coherent, cross-service views of our system health. All services should emit health and general mointoring-related metrics in some way.
+- **Interfaces** - it's important to pick a small number of defined interface technologies to help integrate new consumers. Having one standard is a good number, two isn't bad either.
+- **Architectural Safety** - we have to ensure our services shield themselves from unhealthy downstream calls.
+
+## Governance Through Code
+- **Exemplars** - having exemplars of a set of standards and best practices for people to point to is useful. These should be real-world services.
+- **Tailored Service Template** - you ensure teams can get going faster and developers ahve to go out of their way to make their services behave badly.
+
+With larger, monolithic systems there are fewer opportunities for people to set up and own something. With microservices we have multiple autonomous codebases that will have their own independent lifecycles.
+
+The core responsbilities of an evolutionary architect:
+- **vision** - clearly communicate technical vision to meet customer and organization needs
+- **empathy** - understand impact of decisions on cusotomers and colleagues
+- **collaboration** - engage with peers
+- **adaptability** - change technical vision as customer or organization requires it
+- **autonomy** - find balance between standardizing and enabling autonomy for teams
+- **governance** - ensure the system being implemented fits the technical vision
