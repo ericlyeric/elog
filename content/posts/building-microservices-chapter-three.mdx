@@ -1,0 +1,16 @@
+---
+slug: building-microservices-chapter-three
+title: "Building Microservices: Chapter 3: How to Model Services"
+date: 2022-08-16 20:42:59
+tags:
+  - software engineering
+  - microservices
+summary: Make sure the service is loosely coupled and has high cohesion
+---
+## What Makes a Good Service?
+- **Loose coupling** - a change in one service should not require a change in another. It knows as little as it needs about the services that it collaborates with.
+- **High cohesion** - ensure related behavior is in one place, and communicates with other boundaries as loosely as possible.
+
+When sharing models that can be shared, and not sharing our internal representations, we avoid tight coupling. It is also useful to establish a bounded context where if you want information you communicate with its explicit boundary using models. Getting service boundaries wrong can be costly, it is more safe to start a new system on the more monolithic side in the beginning. 
+
+Microservices representing bounded contexts can be nested and hidden, or they can be popped up into their own top-level contexts. Its generally better to nest the microservices if the same team is handling that bounded context, if the microservices are all managed by different teams then it would be better to have top-level contexts. 
