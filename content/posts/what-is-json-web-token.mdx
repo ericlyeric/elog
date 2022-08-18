@@ -1,0 +1,31 @@
+---
+slug: what-is-json-web-token
+title: What is a JSON Web Token?
+date: 2022-08-18 13:32:54
+tags:
+  - software engineering
+  - programming
+summary: JWT is used for authorization not authentication
+---
+JSON Web Tokens (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between two parties as a JSON object. The information is digitally signed via a secret (HMAC algorithm) or a public/private key (RSA or ECDSA). 
+
+JWT is used for authorization not authentication.
+
+**Authorization**: is the security process that determines a user or service's level of access.
+
+**Authentication**: is the process that verifies that someone or something is who they say they are.
+
+A JWT token is comprised of three parts, each part is separated with a period:
+1. **Header**: the algorithm and token type
+2. **Payload**: the data
+3. **Verify Signature**: the verification signature
+
+JWT tokens can be shared among the clients so the user will not need to re-login. When you're using sessions, the session is stored in the server and you'll need to re-login when you hit another service. 
+
+
+
+
+
+## Sources
+1. [JWT](https://jwt.io/)
+2. [What is JWT and Why Should You Use JWT](https://www.youtube.com/watch?v=7Q17ubqLfaM)
