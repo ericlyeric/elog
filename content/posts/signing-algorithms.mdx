@@ -1,0 +1,19 @@
+---
+slug: signing-algorithms
+title: Signing Algorithms
+date: 2022-08-23 08:17:31
+tags:
+  - software engineering
+  - programming
+summary: Signing algorithms are used to sign tokens issued for applications or APIs
+---
+Signing algorithms are used to sign (JWT) tokens issued for your application or API, it is used to verify the sender of the token is who it says it is and ensure the original message is not changed. 
+
+Two signing algorithms for JWT:
+- **RS256**: an asymmetric algorithm meaning there are two keys, a public key and a private key (must be kept secret). 
+- **HS256**: a symmetric algorithm meaning there is only one private key (must be kept secret) and it is shared between the two parties. The same key is used to generate the signature and validate it.
+
+The most secure practice and recommendation is to use RS256
+
+## Sources
+1. [Signing Algorithms](https://auth0.com/docs/get-started/applications/signing-algorithms)
