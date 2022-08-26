@@ -1,0 +1,25 @@
+---
+slug: what-is-port-forwarding
+title: What is port forwarding
+date: 2022-08-26 11:57:29
+tags:
+  - software engineering
+summary: Allows computers or services in private networks to connect over the
+  internet with other public or private computers or services
+---
+A Router allows multiple devices/computers to connect to it creating a LAN (Local Area Network). A LAN can connect and talk to each other via an IP Address. WAN (Wide Area Network) is a collection of LANs or other networks that communicate with one another. A WAN is essentially a network of networks, the Internet is the world's largest WAN. 
+
+Routers will block outside traffic, unless you enable the outside traffic to enter your network. When web browsing you're initiating the connection to a server located somewhere. Most home routers are mapped to your default gateway (eg. 192.168.0.1). Typical IP range is 192.168.0.0 - 192.168.255.255.
+
+Port forwarding allows something from outside your network to start a connection with a device on your network. The are specific uses cases for each port number, although there are some applications where the port does not matter as long as that port is not currently being used. A port is not a physical connection, it is a logical connection that is used by programs and services to exchange information. Port numbers range from 0 - 65535. Common ports are
+- 80 - HTTP - used for webpages
+- 20, 21 - FTP - used for File Transfer Protocol
+- 443 - HTTPS - secure web pages
+
+Port forwarding does open you up to some security risks. Using SSH tunnelling would be more safe.
+
+## Sources
+1. [Beginners Guide to Port Forwarding](https://www.youtube.com/watch?v=jfSLxs40sIw)
+2. [What The Heck is Port Forwarding](https://www.youtube.com/watch?v=WOZQppVNGvA)
+3. [What is a WAN](https://www.cisco.com/c/en/us/products/switches/what-is-a-wan-wide-area-network.html#:~:text=In%20its%20simplest%20form%2C%20a,Internet%20the%20world's%20largest%20WAN.)
+4. [Port Forwarding Explained](https://www.youtube.com/watch?v=2G1ueMDgwxw)
