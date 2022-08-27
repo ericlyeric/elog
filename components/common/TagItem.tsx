@@ -17,7 +17,7 @@ const TagItem = ({ text, isEnd = false }: TagItemProps) => {
         } text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400`}
         onClick={() => setSearchValue(text)}
       >
-        {text.split(' ').join('-')}
+        {text}
       </a>
     </Link>
   );
