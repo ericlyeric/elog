@@ -1,0 +1,30 @@
+---
+slug: building-microservices-chapter-four
+title: "Building Microservices: Chapter 4: Integration"
+date: 2022-09-12 08:55:12
+tags:
+  - software engineering
+  - microservices
+summary: TBD
+---
+## Looking for the Ideal Integration Technology
+-﻿ avoid breaking changes
+-﻿ keep your API's technology-agnostic
+-﻿ make your service simple for consumers
+-﻿ hide internal implementation detail
+
+#﻿# The shared Database
+T﻿he most common form of integration in the industry, it has its common problems
+1﻿. external parties to view and bind to internal implementation details
+2﻿. consumers are tied to a specific technology choice
+3﻿. sharing behavior
+W﻿ith database integration we lose strong cohesion and loose coupling (both are core to a good microservice). Database integration makes it easy for services to share data, but odes nothing about sharing behavior
+
+#﻿# Synchronous vs. Asynchronous
+-﻿ **synchronous communication**: a call made to a remote server blocks until the operation completes
+-﻿ **asynchronous communication**: a caller doesn't wait for the operation to complete before returning, may not even care whether the operation completes at all
+
+B﻿oth types of modes of communication enable two different styles of collaboration
+1﻿. request/response: a client initiates a request and waits for a response (synchronous model, asynchronous model)
+2﻿. event-based: instead of client initiating request, it says this happened and expects other parties to know what to do (asynchronous in nature)
+
