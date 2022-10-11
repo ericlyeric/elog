@@ -1,22 +1,29 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import SearchBar from './SearchBar';
-import Pagination from './Pagination';
 import { PostsListProps } from '../lib/posts';
 import PostItem from './PostItem';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSearchContext } from '../context/SearchContext';
 
-const PostList = ({ posts, pagination }: PostsListProps) => {
+const PostList = ({ posts, numberOfPosts }: PostsListProps) => {
+  const [numberOfPostsLoaded, setNumberOfPostsLoaded] = useState(5);
   const { searchValue } = useSearchContext();
   const filterPosts = useMemo(
     () =>
-      posts.filter((content) => {
+      posts?.filter((content) => {
         const searchContent = content.title + content.summary + content.tags.join(' ');
         return searchContent.toLowerCase().includes(searchValue.toLowerCase());
       }),
     [posts, searchValue]
   );
 
-  const displayPosts = posts.length > 0 && !searchValue ? posts : filterPosts;
+  const handleLoadMoreData = () => {
+    setTimeout(() => {
+      setNumberOfPostsLoaded(numberOfPostsLoaded + 5);
+    }, 1000);
+  };
+
+  const displayPosts = posts && posts?.length > 0 && !searchValue ? posts : filterPosts;
 
   return (
     <>
@@ -29,16 +36,24 @@ const PostList = ({ posts, pagination }: PostsListProps) => {
             <SearchBar />
           </div>
         </div>
-        <ul>
-          {!filterPosts.length && <div className="py-4 text-center text-lg">No posts found.</div>}
-          {displayPosts.map((post, index) => {
-            return <PostItem key={index} post={post} index={index} />;
-          })}
-        </ul>
+        <div>
+          <ul>
+            <InfiniteScroll
+              dataLength={numberOfPostsLoaded}
+              next={handleLoadMoreData}
+              hasMore={numberOfPosts > numberOfPostsLoaded}
+              loader={<p className="pt-2 text-center">Loading more posts...</p>}
+              endMessage={<p className="pt-2 text-center">No more posts to load</p>}
+            >
+              {displayPosts?.map((post, index) => {
+                if (index < numberOfPostsLoaded) {
+                  return <PostItem key={index} post={post} index={index} />;
+                }
+              })}
+            </InfiniteScroll>
+          </ul>
+        </div>
       </div>
-      {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-      )}
     </>
   );
 };

@@ -2,14 +2,12 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
-import Pagination from '../common/Pagination';
-import { ComponentProps } from 'react';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
 export interface PostsListProps {
   posts: PostContent[];
-  pagination: ComponentProps<typeof Pagination>;
+  numberOfPosts: number;
 }
 
 export interface PostContent {
@@ -68,14 +66,10 @@ export const countPosts = (tag?: string): number => {
   return fetchPostContent().filter((post) => !tag || (post.tags && post.tags.includes(tag))).length;
 };
 
-interface listPostContentProps {
-  page: number;
-  limit: number;
+interface allPostContentProps {
   tag?: string;
 }
 
-export const listPostContent = ({ page, limit, tag }: listPostContentProps): PostContent[] => {
-  return fetchPostContent()
-    .filter((post) => !tag || (post.tags && post.tags.includes(tag)))
-    .slice((page - 1) * limit, page * limit);
+export const allPostContent = ({ tag }: allPostContentProps): PostContent[] => {
+  return fetchPostContent().filter((post) => !tag || (post.tags && post.tags.includes(tag)));
 };
