@@ -1,0 +1,86 @@
+---
+slug: building-microservices-chapter-four
+title: "Building Microservices: Chapter 4: Integration"
+date: 2022-09-12 08:55:12
+tags:
+  - software engineering
+  - microservices
+summary: Getting integration right is the most important aspect of the
+  technology associated with microservices
+---
+## Looking for the Ideal Integration Technology
+- avoid breaking changes
+- keep your API's technology-agnostic
+- make your service simple for consumer
+- hide internal implementation detail
+
+## The shared Database
+T﻿he most common form of integration in the industry, it has its common problems
+1. external parties to view and bind to internal implementation details
+2. consumers are tied to a specific technology choice
+3. sharing behavior
+
+W﻿ith database integration we lose strong cohesion and loose coupling (both are core to a good microservice). Database integration makes it easy for services to share data, but odes nothing about sharing behavior
+
+## Synchronous vs. Asynchronous
+- **synchronous communication**: a call made to a remote server blocks until the operation completes
+- **asynchronous communication**: a caller doesn't wait for the operation to complete before returning, may not even care whether the operation completes at all
+
+B﻿oth types of modes of communication enable two different styles of collaboration
+1﻿. request/response: a client initiates a request and waits for a response (synchronous model, asynchronous model)
+2﻿. event-based: instead of client initiating request, it says this happened and expects other parties to know what to do (asynchronous in nature)
+
+#﻿# Orchestration vs. Choreography
+- **orchestration**: we rely on a central brain to guide and drive the process, much like a conductor
+- **choreography**: we inform each part of the system of its job, and let it work out the details, like dancers all finding their way and reacting to others
+
+In general most systems tend toward the choreographed approach as it is more loosely coupled, and more flexible and amendable to change; although you need to do extra work to track the processes across system boundaries.
+
+M﻿ost heavily orchestrated implementations are extremely brittle, with a higher cost of change.
+
+## Remote Procedure Calls
+- **remote procedure calls**: technique of making a local call and having it execute on a remote service somewhere.
+
+S﻿ome RPC mechanisms are heavily tied to a specific platform which can limit the technology that can be used in the client and server. The main idea of RPC is to hide the complexity of the remote call. 
+
+T﻿he first fallacies of distributed computing is the 'network is reliable', networks are not reliable in practice.
+
+## R﻿EST
+-﻿ **REpresentational State Transfer**: an architectural style inspired by the web.
+
+T﻿he most important is the concept of resources. REST itself doesn't talk about underlying protocols but it is most commonly used over HTTP. HTTP defines some useful capabilities that play very well with REST. 
+
+### Hypermedia As the Engine of Application State
+-**HATEOAS**: concept where a piece of content contains links to various other pieces of content in a variety of formats (eg. text, sounds, images). 
+
+H﻿TTP is suited well for high volumes of traffic but it isn't great for low latency communications
+
+## Implementing Asynchronous Event-based Collaboration
+
+T﻿here are two main parts to consider for technology choices, a way for our microservice to emit events, and a way for our consumers to find out the events have happened. If you have a good resilient message broker, consider using it to handle publishing and subscribing to events. 
+
+## DRY and the Perils of Code Reuse in a Microservice World
+D﻿RY more accurately means avoid duplicating our system behavior and knowledge. This leads us to create code that can be reused, usually put into a shared library so that it can be used everywhere; however this can be deceptively dangerous in a microservice architecture. We want to avoid overly coupling a microservice and consumers. Don't violate DRY within a microservice, but be relaxed about violating DRY across all services. 
+
+## User Interfaces
+### UI Fragment Composition
+R﻿ather than having our UI make API calls and map everything back to UI controls, we could have our services provide parts of the UI directly and then just pull these fragments in to create a UI. 
+
+#﻿## Backends for Frontends
+A﻿ common solution to the problem of chatty interfaces with backend services, or the need to vary content for different types of devices is to have a server-side aggregation endpoint or API gateway. A problem that occurs here is having one giant layer for all services, you can avoid this by restricting the use of these backends to one specific user interface or application. The danger here is business logic can be sitting outside the services themselves. 
+
+## Integrating with Third Party Software
+C﻿ommon question is 'Should I build, or should I buy?'. Build if it is unique to what you do, and can be considered a strategic asset; buy if your use of the tool isn't that special.
+
+## The Strangler Pattern
+W﻿hen it comes to legacy, or COTS  platforms (commericial off-the-shelf) a useful pattern is the Strangler Application Pattern. You can capture and intercept calls to the old system. 
+
+## Summary
+- avoid database integration at all costs
+- prefer choreography over orchestration
+- think of user interfaces as compositional layers
+
+## Recommended Readings
+1. [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html) 
+2. [REST in Practice](https://learning.oreilly.com/library/view/rest-in-practice/9781449383312/)
+3. [The Strangler Pattern](https://martinfowler.com/bliki/StranglerFigApplication.html)
