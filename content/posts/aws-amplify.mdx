@@ -1,0 +1,36 @@
+---
+slug: aws-amplify
+title: What is AWS Amplify
+date: 2022-10-10 23:14:58
+tags:
+  - programming
+  - software engineering
+summary: Describing what is AWS Amplify
+---
+## What is AWS Amplify?
+- a 'glue' service that helps you build entire apps quickly
+- primarily used as a CLI tool, but there is a limited feature UI
+- can quickly add storage, authentication, monitoring, etc.
+- behind the scenes, it's just CloudFormation (Cloud Formation is an infrastructure as code solution for AWS, it allows you to write code to deploy your infrastructure out into the cloud). 
+
+## Usage
+- primarily through the CLI
+- you can run `amplify configure` and `amplify add api` and follow the wizards, upon completion a lot of application code will be added to your project folder; you can make some changes to your api's directly through the editor
+- when ready to deploy, the code will be packaged up and sent to the AWS cloud, where there will be n Amazon API Gateway and an AWS Lambda to host the API
+- there is also another option to use the Admin UI (everything here can be done through the CLI)
+
+## Pros and Cons
+### Pros
+- getting started quickly
+- prototyping
+- fast development cycles
+- shields you from complexity of AWS services
+### Cons
+- you don't really learn AWS services
+- collaboration can be frustrating
+- can't go 'outside the box' 
+- potential for surprise bills (if you add things without knowing how it is billed)
+
+## Sources
+1﻿. [What is AWS Amplify?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
+
