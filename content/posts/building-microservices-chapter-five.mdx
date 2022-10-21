@@ -26,4 +26,8 @@ How entangled the code is with the rest of the system, you can view various seam
 
 **two-phase commit**: common algorithm for handling distributed transactions (especially short-lived). First is a voting phase, if gets a yes vote from all participants, then go ahead and perform the commit; a single no vote is enough to send out a rollback to all parties. This method is vulnerable to outages and locks.
 
-s﻿topped at Data Retrieval via Service Calls
+## Data Retrieval 
+R﻿eporting systems often rely on third party tools that expect data to be retrieved a certain way, providing a SQL interface is the fastest way to ensure reporting tool chain is easy to integrate with.
+
+## Data Pumps
+Rather than having reporting systems pull the data, we could instead have the data pushed to the reporting system. This is an exception to when coupling is acceptable, the same team that owns the data should be the team building the data pump. 
