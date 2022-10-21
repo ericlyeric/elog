@@ -1,0 +1,29 @@
+---
+slug: building-microservices-chapter-five
+title: "Building Microservices: Chapter 5: Splitting the Monolith"
+date: 2022-10-21 09:18:10
+tags:
+  - programming
+  - software engineering
+summary: Focus on seams first to establish boundaries before splitting a monolith
+---
+**﻿seam**: portion of code that can be treated in isolation and worked on without impacting the rest of the codebase. A good seam represents cohesive and yet loosely coupled boundaries in an organization. The first step is to identify boundaries in our code.
+
+W﻿e want to identify seams because they can become service boundaries.
+
+## Reasons to Split the Monolith
+1. Pace of change 
+2. Team structure
+3. Security
+4. Technology
+
+## Tangled Dependancies
+How entangled the code is with the rest of the system, you can view various seams you have found as a directed acyclical graph of dependancies. The database is a very common tangled dependancy. Transactions allow us to say these events either all happen together, or none of them happen. 
+
+**eventual consistency**: rather than using a transactional boundary to ensure that the system is in a consistent state when the transaction completes, instead we accept that the system will get into a consistent state at some point in the future.
+
+**distributed transaction**: try to span multiple transactions within them using an overall governing process called a transaction manager to orchestrate various transactions in the underlying systems.
+
+**two-phase commit**: common algorithm for handling distributed transactions (especially short-lived). First is a voting phase, if gets a yes vote from all participants, then go ahead and perform the commit; a single no vote is enough to send out a rollback to all parties. This method is vulnerable to outages and locks.
+
+s﻿topped at Data Retrieval via Service Calls
