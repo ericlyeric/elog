@@ -4,9 +4,10 @@ import { PostsListProps } from '../lib/posts';
 import PostItem from './PostItem';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSearchContext } from '../context/SearchContext';
+import settings from '../lib/settings';
 
 const PostList = ({ posts, numberOfPosts }: PostsListProps) => {
-  const [numberOfPostsLoaded, setNumberOfPostsLoaded] = useState(5);
+  const [numberOfPostsLoaded, setNumberOfPostsLoaded] = useState<any>(settings.numberOfPosts);
   const { searchValue } = useSearchContext();
   const filterPosts = useMemo(
     () =>
@@ -19,7 +20,7 @@ const PostList = ({ posts, numberOfPosts }: PostsListProps) => {
 
   const handleLoadMoreData = () => {
     setTimeout(() => {
-      setNumberOfPostsLoaded(numberOfPostsLoaded + 5);
+      setNumberOfPostsLoaded(numberOfPostsLoaded + settings.numberOfPosts);
     }, 1000);
   };
 
@@ -42,7 +43,13 @@ const PostList = ({ posts, numberOfPosts }: PostsListProps) => {
               dataLength={numberOfPostsLoaded}
               next={handleLoadMoreData}
               hasMore={numberOfPosts > numberOfPostsLoaded}
-              loader={<p className="pt-2 text-center">Loading more posts...</p>}
+              loader={
+                displayPosts.length < 1 ? (
+                  <p className="pt-2 text-center">No posts found</p>
+                ) : (
+                  <p className="pt-2 text-center">Loading more posts...</p>
+                )
+              }
               endMessage={<p className="pt-2 text-center">No more posts to load</p>}
             >
               {displayPosts?.map((post, index) => {
